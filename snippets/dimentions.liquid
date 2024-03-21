@@ -1,0 +1,22 @@
+<div class="dimentions__container">
+  <legend class="form__label">Dimentions</legend>
+
+  {% for variant in product.variants %}
+    <table id="variant-dimentions--{{ variant.id }}" class="{% unless variant.id == product.selected_or_first_available_variant.id %}hidden{% endunless %}">
+      {% if variant.metafields.information.dimensions != blank %}
+        <tr>
+          <td>Width</td>
+          <td>{{ variant.metafields.information.dimensions.value.width }}</td>
+        </tr>
+        <tr>
+          <td>Height</td>
+          <td>{{ variant.metafields.information.dimensions.value.height }}</td>
+        </tr>
+        <tr>
+          <td>Depth</td>
+          <td>{{ variant.metafields.information.dimensions.value.depth }}</td>
+        </tr>
+      {% endif %}
+    </table>
+  {% endfor %}
+</div>

@@ -1,17 +1,21 @@
-.custom-form__container table {
+.custom-form__container table,
+.dimentions__container table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 24px;
 }
 
 .custom-form__container td,
-.custom-form__container th {
+.custom-form__container th,
+.dimentions__container td,
+.dimentions__container th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-.custom-form__container tr:nth-child(even) {
+.custom-form__container tr:nth-child(even),
+.dimentions__container tr:nth-child(even) {
     background-color: #dddddd;
 }
 

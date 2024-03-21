@@ -970,6 +970,7 @@ class VariantSelects extends HTMLElement {
       this.updateVariantInput();
       this.renderProductInfo();
       this.updateShareUrl();
+      this.updateDimentions();
     }
   }
 
@@ -1100,6 +1101,15 @@ class VariantSelects extends HTMLElement {
 
     const productForm = section.querySelector('product-form');
     if (productForm) productForm.handleErrorMessage();
+  }
+
+  updateDimentions() {
+    const requestedVariantId = this.currentVariant.id;
+    const dimentionsTables = document.querySelectorAll('.dimentions__container table');
+    dimentionsTables.forEach(table => {
+      table.classList.add('hidden');
+    })
+    document.querySelector('table#variant-dimentions--' + requestedVariantId).classList.remove('hidden');
   }
 
   renderProductInfo() {
