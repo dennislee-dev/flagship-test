@@ -1,0 +1,32 @@
+.new-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.new-carousel__block {
+    width: calc(100% / 3 - 10px);
+}
+
+.new-carousel__block-title.campaign {
+    color: red;
+}
+
+.new-carousel__block-title.new_product {
+    color: blue;
+}
+
+.new-carousel__block-title.news {
+    color: green;
+}
+
+@media (max-width: 768px) {
+    .new-carousel {
+        flex-direction: column;
+    }
+
+    .new-carousel__block {
+        width: 100%;
+    }
+}

@@ -66,10 +66,52 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "new_carousel_CbmwFN": {
+      "type": "new-carousel",
+      "blocks": {
+        "campaign_ePEcLm": {
+          "type": "campaign",
+          "settings": {
+            "title": "Campaign",
+            "description": "This is Campaign.",
+            "featured": false
+          }
+        },
+        "new_product_8T3A3t": {
+          "type": "new_product",
+          "settings": {
+            "title": "New product",
+            "description": "This is New product.",
+            "featured": true
+          }
+        },
+        "news_e49pWP": {
+          "type": "news",
+          "settings": {
+            "title": "News",
+            "description": "This is News.",
+            "featured": false
+          }
+        }
+      },
+      "block_order": [
+        "campaign_ePEcLm",
+        "new_product_8T3A3t",
+        "news_e49pWP"
+      ],
+      "settings": {
+        "bg_color": "#FBF9F6",
+        "ptop": 60,
+        "pbottom": 60,
+        "ptop_mob": 40,
+        "pbottom_mob": 40
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "new_carousel_CbmwFN"
   ]
 }
