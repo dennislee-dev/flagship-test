@@ -1,0 +1,55 @@
+<div class="custom-form__container">
+  <table>
+    <tr>
+      <th>SKU</th>
+      <th>Price</th>
+      <th>Quanity</th>
+    </tr>
+    {% for variant in product.variants %}
+      <tr>
+        <td>{{ variant.sku }}</td>
+        <td>{{ variant.price | money }}</td>
+        <td>
+          <input
+            type="number"
+            class="custom-form__input"
+            max="{{ variant.inventory_quantity }}"
+            data-variant-id="{{ variant.id }}"
+            value="0"
+            {% unless variant.available %}
+              disabled
+            {% endunless %}
+          >
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  {%- liquid
+    assign check_against_inventory = true
+    if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+      assign check_against_inventory = false
+    endif
+    if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+      assign quantity_rule_soldout = true
+    endif
+  -%}
+
+  <button
+    id="ProductSubmitButton-{{ section_id }}"
+    type="button"
+    name="add"
+    class="product-form__submit button button--full-width button--primary custom-form__button"
+    {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+      disabled
+    {% endif %}
+  >
+    <span>
+      {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+        {{ 'products.product.sold_out' | t }}
+      {%- else -%}
+        {{ 'products.product.add_to_cart' | t }}
+      {%- endif -%}
+    </span>
+  </button>
+</div>
